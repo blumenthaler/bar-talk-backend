@@ -8,8 +8,8 @@
 
 alex = User.create(username: "Alex the Bartender", password: "password")
 
+dirty_cocktail = Cocktail.create(name: "Dirty Martini", spirit: "gin")
 
+dirty_recipe = Recipe.create(name: dirty_cocktail.name, spirit: dirty_cocktail.spirit, ingredients: "lots of gin, olive juice, dry vermouth", garnish: "olives", notes: "this is very tasty with Boodles", user: alex, cocktail: dirty_cocktail)
 
-dirty = Recipe.create(name: "Dirty Martini", spirit: "gin", ingredients: "lots of gin, olive juice, dry vermouth", garnish: "olives", notes: "this is very tasty with Boodles", user: alex)
-
-dirty_comment = Comment.create(content: "this is delicious", user: alex, recipe: dirty)
+dirty_comment = Comment.create(content: "this is delicious", user: alex, recipe: dirty_recipe)

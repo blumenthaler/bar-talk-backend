@@ -8,6 +8,7 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       t.string :notes
       t.integer :votes
       t.belongs_to :user
+      t.belongs_to :cocktail
 
       t.timestamps
     end

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
+
+  create_table "cocktails", force: :cascade do |t|
+    t.string "name"
+    t.string "spirit"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -30,8 +37,10 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "notes"
     t.integer "votes"
     t.integer "user_id"
+    t.integer "cocktail_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cocktail_id"], name: "index_recipes_on_cocktail_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
