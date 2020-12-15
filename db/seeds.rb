@@ -8,4 +8,8 @@
 
 alex = User.create(username: "Alex the Bartender", password: "password")
 
-comment = Comment.create(content: "this is delicious", user: alex)
+
+
+dirty = Recipe.create(name: "Dirty Martini", spirit: "gin", ingredients: "lots of gin, olive juice, dry vermouth", garnish: "olives", notes: "this is very tasty with Boodles", user: alex)
+
+dirty_comment = Comment.create(content: "this is delicious", user: alex, recipe: dirty)

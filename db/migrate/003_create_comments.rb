@@ -3,6 +3,7 @@ class CreateComments < ActiveRecord::Migration[6.0]
     create_table :comments do |t|
       t.string :content
       t.belongs_to :user
+      t.belongs_to :recipe
 
       t.timestamps
     end

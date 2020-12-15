@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  spirit: MyString
+  ingredients: MyString
+  garnish: MyString
+  notes: MyString
+  votes: 1
+
+two:
+  name: MyString
+  spirit: MyString
+  ingredients: MyString
+  garnish: MyString
+  notes: MyString
+  votes: 1
