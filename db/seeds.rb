@@ -21,7 +21,7 @@ mike_fashioned = Recipe.create(name: old_fashioned_cocktail.name, spirit: old_fa
 
 alex_fashioned = Recipe.create(name: old_fashioned_cocktail.name, spirit: old_fashioned_cocktail.spirit, ingredients: "2 oz rye, 0.25 oz simple, 3 dashes angostura", garnish: "orange slice", notes: "My favorite drink, like Don Draper lol", votes: 0, user: alex, cocktail: old_fashioned_cocktail)
 
-jimmy_dirty = Recipe.create(name: vodka_dirty.name, spirit: vodka_dirty.spirit, ingredients: "2 oz vodka, 1 oz olive juice, splash dry vermouth", garnish: "bleu cheese olives", notes: "Grey Goose boi!!", votes: 0, user: jimmy, cocktail: dirty_cocktail)
+jimmy_dirty = Recipe.create(name: vodka_dirty.name, spirit: vodka_dirty.spirit, ingredients: "2 oz vodka, 1 oz olive juice, splash dry vermouth", garnish: "bleu cheese olives", notes: "Grey Goose boi!!", votes: 0, user: jimmy, cocktail: vodka_dirty)
 
 dirty_recipe = Recipe.create(name: dirty_cocktail.name, spirit: dirty_cocktail.spirit, ingredients: "lots of gin, olive juice, dry vermouth", garnish: "olives", notes: "this is very tasty with Boodles", votes: 0, user: alex, cocktail: dirty_cocktail)
 
