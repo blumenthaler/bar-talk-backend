@@ -3,7 +3,10 @@ class Api::V1::SessionsController < ApplicationController
         @user = User.find_by(username: params[:session][:username])
         if @user && @user.authenticate(params[:session][:password])
             session[:user_id] = @user.id
-            render json: @user, status: :ok
+            options = {
+                include: [:recipes]
+            }
+            render json: UserSerializer.new(@user, options)
         else
             render json: {
                 error: "Invalid Credentials"
@@ -13,7 +16,10 @@ class Api::V1::SessionsController < ApplicationController
 
     def get_current_user
         if logged_in?
-            render json: current_user
+            options = {
+                include: [:recipes]
+            }
+            render json: UserSerializer.new(current_user, options)
         else
             render json: {
                 error: "Please Log In"
