@@ -3,9 +3,11 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
-
-    render json: @users
+    users = User.all
+        options = {
+            include: [:recipes]
+        }
+        render json: UserSerializer.new(users, options)
   end
 
   # GET /users/1
