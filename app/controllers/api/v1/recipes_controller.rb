@@ -11,19 +11,22 @@ class Api::V1::RecipesController < ApplicationController
         recipe = Recipe.new(recipe_params)
         recipe.votes = 0
         spirit = recipe_params[:spirit].downcase
-        # find all cocktails with the recipe's name  
+
         named = Cocktail.all.select{|c| c.name === recipe_params[:name]}
-        if !!named.empty?
-            # try to find the cocktail with same name AND spirit
+        if !named.empty?
             maybe_cocktail = named.find{|c| c.spirit === spirit}
             if maybe_cocktail
                 recipe.cocktail = maybe_cocktail
+            else
+                new_cocktail = Cocktail.create(name: recipe_params[:name], spirit: spirit)
+                recipe.cocktail = new_cocktail
             end
-        end
-        # if cocktail of same name and spirit does not exist, create one!
-
+        else
             new_cocktail = Cocktail.create(name: recipe_params[:name], spirit: spirit)
             recipe.cocktail = new_cocktail
+        end
+        
+            
         if recipe.save
             options = {
                 include: [:user, :cocktail, :comments]
