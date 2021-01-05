@@ -19,6 +19,17 @@ class Api::V1::CommentsController < ApplicationController
         end
     end
 
+    def destroy
+        comment = Comment.find(params[:id])
+        if comment.destroy
+            render json:  { data: "Comment successfully destroyed" }, status: :ok
+        else
+            error_resp = {
+              error: "Comment not found and not destroyed"
+            }
+            render json: error_resp, status: :unprocessable_entity
+        end
+    end
 
     private
 
