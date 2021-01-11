@@ -55,8 +55,16 @@ class Api::V1::RecipesController < ApplicationController
         if recipe.destroy
             if cocktail.recipes.empty?
                 cocktail.destroy
+                render json:  { 
+                    data: "Recipe successfully destroyed",
+                    cocktail: "cocktail destroyed"
+                }, status: :ok
+            else
+                render json:  { 
+                    data: "Recipe successfully destroyed",
+                    cocktail: cocktail
+                }, status: :ok
             end
-            render json:  { data: "Recipe successfully destroyed" }, status: :ok
         else
             error_resp = {
               error: "Recipe not found and not destroyed"
