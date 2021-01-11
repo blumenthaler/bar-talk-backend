@@ -51,7 +51,11 @@ class Api::V1::RecipesController < ApplicationController
 
     def destroy
         recipe = Recipe.find_by(id: params[:id])
+        cocktail = recipe.cocktail
         if recipe.destroy
+            if cocktail.recipes.empty?
+                cocktail.destroy
+            end
             render json:  { data: "Recipe successfully destroyed" }, status: :ok
         else
             error_resp = {
