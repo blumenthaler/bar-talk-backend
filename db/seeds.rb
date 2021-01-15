@@ -12,9 +12,9 @@ boss = User.create(username: "BartenderBoss", password: "pw")
 brandy_boy = User.create(username: "TheBrandyConnoisseur", password: "queens")
 
 # Cocktails
-dirty_cocktail = Cocktail.create(name: "Dirty Martini", spirit: "gin")
-vodka_dirty = Cocktail.create(name: "Dirty Martini", spirit: "vodka")
-old_fashioned_cocktail = Cocktail.create(name: "Old Fashioned", spirit: "rye")
+dirty_cocktail = Cocktail.create(name: "dirty martini", spirit: "gin")
+vodka_dirty = Cocktail.create(name: "dirty martini", spirit: "vodka")
+old_fashioned_cocktail = Cocktail.create(name: "old fashioned", spirit: "rye")
 
 # Recipes
 mike_fashioned = Recipe.create(name: old_fashioned_cocktail.name, spirit: old_fashioned_cocktail.spirit, ingredients: "2 oz rye, 0.5 oz simple, 4 dashes angostura", garnish: "cherry", notes: "Can also use Bourbon or Brandy", votes: 0, user: boss, cocktail: old_fashioned_cocktail)
