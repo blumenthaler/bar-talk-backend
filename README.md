@@ -9,5 +9,6 @@ From the top-level directory, run:
 ```
 bundle install
 rails db:migrate
+rails db:seed   # run with seed data
 rails s
 ```
